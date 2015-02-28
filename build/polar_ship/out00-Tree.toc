@@ -1,0 +1,7 @@
+('./res',
+ 'res',
+ [],
+ [('res\\bg.png', './res\\bg.png', 'DATA'),
+  ('res\\missile.png', './res\\missile.png', 'DATA'),
+  ('res\\music.mid', './res\\music.mid', 'DATA'),
+  ('res\\ship1.png', './res\\ship1.png', 'DATA')])
