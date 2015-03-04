@@ -1,0 +1,9 @@
+('C:\\Users\\Count Dooku\\programming\\python\\Ship-Fighters\\build\\full_game\\ship_fighters.exe',
+ True,
+ False,
+ None,
+ None,
+ [],
+ None,
+ False,
+ 1425344151L)
