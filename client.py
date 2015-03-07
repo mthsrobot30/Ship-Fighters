@@ -3,7 +3,7 @@ import threading,socket,sys
 from Tkinter import *
 from game_engine import *
 
-SERVER_ADDRESS="SolarSailor"
+SERVER_ADDRESS="107.178.217.79"
 
 class Player(Ship):
 	def update(self):

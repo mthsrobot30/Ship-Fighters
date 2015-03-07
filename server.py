@@ -3,7 +3,6 @@ from game_engine import *
 
 def relay(sender, to):
 	while True:
-		print "asfs"
 		x=full_recv(sender, 4096)
 		if x=="end game":
 			print "releasing thread"
