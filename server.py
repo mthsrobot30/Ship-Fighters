@@ -3,8 +3,16 @@ from game_engine import *
 
 def relay(sender, to):
 	while True:
+		print "asfs"
 		x=full_recv(sender, 4096)
-		to.send(x+'|')
+		if x=="end game":
+			print "releasing thread"
+			return
+		try:
+			to.send(x+'|')
+		except:
+			print "releasing thread"
+			return
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind(("", int(sys.argv[1])))

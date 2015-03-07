@@ -4,7 +4,6 @@ from Tkinter import *
 from game_engine import *
 
 SERVER_ADDRESS="SolarSailor"
-over=False
 
 class Player(Ship):
 	def update(self):
@@ -42,12 +41,11 @@ class Game(object):
 		games.screen.add(self.opponent)
 		
 		games.screen.mainloop()
-		global over
-		over=True
+		self.conn.send("end game|")
 		sys.exit(1)
 		
 	def opponent_thread(self):
-		while not over:
+		while True:
 			msg=full_recv(self.conn, 4096)
 			print msg
 			self.opponent.keys=eval('['+msg+']')[-1]
