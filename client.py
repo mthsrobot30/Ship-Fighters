@@ -23,7 +23,7 @@ class Game(object):
 		full_recv(self.conn)
 		print "Starting Game..."
 		
-		games.init(1600, 800, 50)
+		games.init(1600*SCALE_RATIO, 800*SCALE_RATIO, 50)
 		
 		self.player=Player(num)
 		self.player.conn=self.conn
@@ -33,7 +33,7 @@ class Game(object):
 		thread.daemon=True
 		thread.start()
 		
-		games.screen.background=games.load_image(resource_path('res/bg.png'), transparent=False)
+		games.screen.background=load_scaled_image(resource_path('res/bg.png'), transparent=False)
 		games.music.load(resource_path('res/music.mid'))
 		games.music.play(-1)
 		

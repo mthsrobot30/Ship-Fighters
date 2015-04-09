@@ -2489,18 +2489,20 @@ setuptools.base64: None -> None
 setuptools.socket: None -> None
 setuptools.atexit: None -> None
 setuptools.backports: None -> None
-backports: None -> None
-  DEL backports
-backports: None -> None
-  DEL backports
+backports: None -> <PkgModule 'backports' C:\Python27\lib\site-packages\backports\__init__.pyc imports=[('pkgutil.extend_path', 0, 0, -1), ('pkgutil', 0, 0, -1)] binaries=[] datas=[]>
+backports.ssl_match_hostname: None -> <PkgModule 'backports.ssl_match_hostname' C:\Python27\lib\site-packages\backports\ssl_match_hostname\__init__.pyc imports=[('re', 0, 0, -1)] binaries=[] datas=[]>
+backports.ssl_match_hostname.match_hostname: None -> None
+  DEL backports.ssl_match_hostname.match_hostname
+backports.ssl_match_hostname.CertificateError: None -> None
+  DEL backports.ssl_match_hostname.CertificateError
 setuptools.wincertstore: None -> None
 wincertstore: None -> None
   DEL wincertstore
 setuptools.ssl: None -> None
-backports: None -> None
-  DEL backports
 wincertstore: None -> None
   DEL wincertstore
+backports.pkgutil: None -> None
+backports.ssl_match_hostname.re: None -> None
 setuptools.posixpath: None -> None
 setuptools.tarfile: None -> None
 setuptools.zipfile: None -> None
