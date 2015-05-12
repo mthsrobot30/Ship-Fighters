@@ -108,7 +108,7 @@ def relay(p1, p2):
 	game=Game(p1, p2)
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind(("", int(sys.argv[1])))
+server.bind(("", 5000))
 server.listen(5)
 
 while True:

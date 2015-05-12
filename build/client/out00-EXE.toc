@@ -1,4 +1,4 @@
-('C:\\Users\\Count Dooku\\programming\\python\\Ship-Fighters\\dist\\ship-fighters.exe',
+('/home/dooku/programming/python/SW-Contest/dist/ship-fighters.exe',
  False,
  False,
  'ship_icon.ico',
@@ -6,4 +6,4 @@
  [],
  None,
  False,
- 1425775288L)
+ 1431404258)

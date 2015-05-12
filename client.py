@@ -4,7 +4,8 @@ import Tkinter, os, math
 
 from game_engine import *
 
-SERVER_ADDRESS="localhost"
+SERVER_ADDRESS=None
+ip_enter=None
 
 class Ship(Wrapper):
 	
@@ -109,20 +110,25 @@ class Game(games.Text):
 		if not GAME_OVER:
 			self.conn.send(str([i for i in (games.K_SPACE, games.K_RIGHT, games.K_LEFT, games.K_UP, games.K_DOWN) if games.keyboard.is_pressed(i)])+"|")
 			
-			info=eval(full_recv(self.conn))
-			self.p1.x, self.p1.y, self.p1.health, self.p1.angle, self.p2.x, self.p2.y, self.p2.health, self.p2.angle, missiles = info
+			info=full_recv(self.conn)
 			
-			while len(self.missiles)!=len(missiles):
-				if len(self.missiles)<len(missiles):
-					missile=Missile(0,0,0,0)
-					games.screen.add(missile)
-					self.missiles.append(missile)
-				else:
-					self.missiles.pop().destroy()
+			if "end game" not in info:
+				info=eval(info)
+				self.p1.x, self.p1.y, self.p1.health, self.p1.angle, self.p2.x, self.p2.y, self.p2.health, self.p2.angle, missiles = info
+			
+				while len(self.missiles)!=len(missiles):
+					if len(self.missiles)<len(missiles):
+						missile=Missile(0,0,0,0)
+						games.screen.add(missile)
+						self.missiles.append(missile)
+					else:
+						self.missiles.pop().destroy()
 
-			for i, v in enumerate(missiles):
-				self.missiles[i].x, self.missiles[i].y, self.missiles[i].dx, self.missiles[i].dy=v
-
+				for i, v in enumerate(missiles):
+					self.missiles[i].x, self.missiles[i].y, self.missiles[i].dx, self.missiles[i].dy=v
+			else:
+				games.screen.quit()
+			
 class Menu(games.Text):
 	def __init__(self):
 		games.Text.__init__(self, value=".", size=5, color=color.blue, x=-100, y=-100, interval=25)
@@ -154,12 +160,25 @@ class Menu(games.Text):
 			Game(self.conn, self.num)
 		
 		self.stage+=1
-		
-def main():
+
+def start_game():
+	global SERVER_ADDRESS
+	SERVER_ADDRESS=ip_enter.get()
 	
+	root.destroy()
 	games.init(1600*SCALE_RATIO, 800*SCALE_RATIO, 50)
 	
 	menu=Menu()
+
+def main():
+	global ip_enter, root
+	root=Tkinter.Tk()
+	#root.geometry("500")
+	Tkinter.Label(root, text="Type in the server's IP address: ").grid(column=0, row=0)
+	ip_enter=Tkinter.Entry(root)
+	ip_enter.grid(column=1, row=0)
+	Tkinter.Button(root, text="Submit", command=start_game).grid(column=2, row=0)
+	root.mainloop()
 	
 if __name__=="__main__":
 	main()

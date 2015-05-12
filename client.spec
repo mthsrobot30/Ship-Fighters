@@ -1,6 +1,6 @@
 # -*- mode: python -*-
 a = Analysis(['client.py'],
-             pathex=['C:\\Users\\Count Dooku\\programming\\python\\Ship-Fighters'],
+             pathex=['~/programming/python/SW-Contest/Ship-Fighters'],
              hiddenimports=[],
              hookspath=None,
              runtime_hooks=None)
@@ -21,4 +21,4 @@ exe = EXE(pyz,
           debug=False,
           strip=None,
           upx=True,
-          console=False)
+          console=True)
