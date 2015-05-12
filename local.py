@@ -15,10 +15,10 @@ class Player2(Ship):
 		Ship.update(self)
 
 def main():
-	games.init(1600*SCALE_RATIO, 850*SCALE_RATIO, 50)
+	games.init(1600*SCALE_RATIO, 850*SCALE_RATIO, 50, True)
 	games.screen.background=load_scaled_image(resource_path('res/bg.png'), transparent=False)
-	games.music.load(resource_path('res/music.mid'))
-	games.music.play(-1)
+	#games.music.load(resource_path('res/music.mid'))
+	#games.music.play(-1)
 	games.screen.add(Player(1))
 	games.screen.add(Player2(2))
 	games.screen.mainloop()

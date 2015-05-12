@@ -1,9 +1,0 @@
-('C:\\Users\\Count Dooku\\programming\\python\\Ship-Fighters\\dist\\ship-fighters.exe',
- False,
- False,
- 'ship_icon.ico',
- None,
- [],
- None,
- False,
- 1425154753L)
